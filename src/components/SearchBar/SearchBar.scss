@@ -1,0 +1,69 @@
+body {
+  background: url(https://thesource.com/wp-content/uploads/2018/06/20180604_AGreatDay_CamA_Group_0022_v920180624-9766-1cherfr.jpeg) no-repeat center center fixed; 
+  background-size: cover;
+}
+
+// SEARCH BEGINS
+.search {
+  width: 1000px;
+  height: 70px;
+  margin: 150px auto;
+  background: #444;
+  background: rgba(0,0,0,.2);
+  border-radius:  3px;
+  border: 5px solid #fff;
+  
+  input {
+    width: 870px;
+    padding: 10px 5px;
+    float: left;
+    color: #ccc;
+    border: 0;
+    background: transparent;
+    border-radius: 3px 0 0 3px;
+    &:focus {
+      outline: 0;
+      background:transparent;
+    }
+    font-size: xx-large;
+  }
+  
+  button {
+    position: relative;
+    float: right;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 70px;
+    width: 120px;
+    color: #fff;
+    background: transparent;
+    border-left: 5px solid #fff;
+    border-radius: 0 3px 3px 0;
+    font-size: x-large;
+    &:hover {
+      background: #fff;
+      color:#444;
+    }
+    &:active {
+      box-shadow: 0px 0px 12px 0px rgba(225, 225, 225, 1);
+    }
+    &:focus {
+      outline: 0;
+    }
+  }  
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: snow;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: snow;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: snow;
+}
+// SEARCH ENDS

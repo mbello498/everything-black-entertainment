@@ -3,6 +3,7 @@ import {Header} from './components/Header/Header'
 import SearchBar from './components/SearchBar/SearchBar'
 import getMovies from './services/recommendationService'
 import Card from 'react-bootstrap/Card'
+import './App.css'
 
 export default function App() {
 
@@ -22,24 +23,26 @@ export default function App() {
     setResults(searchResults)
   }
 
-  const movies = results && results.map((movieArray) => {
-    return movieArray.map((movie) => {
-      let i;
-      for (i = 0; i < movie.genres.length; i++) {
-        if(movie.genres[i].toLowerCase() === input.toLowerCase()) {
-          return (
-            <div style={{ display: 'flex' }}>
-              <Card style={{ width: '38rem' }}>
-                <Card.Img variant="top" src={"https://image.tmdb.org/t/p/w500" + movie.poster} />
-                <Card.Body>
-                  <Card.Title>{movie.title}</Card.Title>
-                  <Card.Text>{movie.overview}</Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-          )
-        }
+  const handleGenreFilter = (movie) => {
+    let i;
+    for (i = 0; i < movie.genres.length; i++) {
+      if(movie.genres[i].toLowerCase() === input.toLowerCase()) {
+        return (
+          <Card className="card">
+            <Card.Img variant="top" src={"https://image.tmdb.org/t/p/w500" + movie.poster} />
+            <Card.Body>
+              <Card.Title>{movie.title}</Card.Title>
+              <Card.Text>{movie.overview}</Card.Text>
+            </Card.Body>
+          </Card>
+        )
       }
+    }
+  }
+
+  const Movies = results && results.map((movieArray) => {
+    return movieArray.map((movie) => {
+      return handleGenreFilter(movie);
     })
   })
   
@@ -47,7 +50,7 @@ export default function App() {
     <div>
       <Header />
       <SearchBar handleSearch={handleSearch} handleInput={handleInput} />
-      <div style={{ display: 'flex' }}>{movies}</div>
+      <div className="moviesContainer">{Movies}</div>
     </div>
   )
 }

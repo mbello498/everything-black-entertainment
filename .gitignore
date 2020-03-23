@@ -24,3 +24,6 @@ yarn-error.log*
 
 #contains api token to protecting routes 
 /middleware
+
+# API KEY
+.env

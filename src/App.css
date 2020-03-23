@@ -1,1 +1,7 @@
+.moviesContainer {
+    display: flex;
+}
 
+.card {
+    width: 38rem;
+}
